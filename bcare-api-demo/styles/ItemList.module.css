@@ -1,0 +1,32 @@
+/* styles/ItemList.module.css */
+.copyMessage {
+  z-index: 100;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ddd;
+  color: black;
+  padding: 3em;
+  border-radius: 2em;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.copyMessage.active {
+  opacity: 1;
+}
+
+.itemsList li {
+    padding: 1em;
+    border-bottom: #bbb solid 1px;
+}
+
+.itemsList div {
+    padding: 0.5em 0;
+}
+
+.itemsList button {
+    padding: 0.5em;
+    margin: 0.5em 0;
+}

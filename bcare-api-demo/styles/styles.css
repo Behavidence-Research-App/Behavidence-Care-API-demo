@@ -1,0 +1,31 @@
+.main-page {
+    margin: 1em;
+    display: flex;
+}
+
+.main-menu {
+    padding: 0 2em;
+}
+
+.main-menu a {
+    text-decoration: none;
+}
+
+.main-menu li {
+    padding: 1em;
+    border-bottom: #bbb solid 1px;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form input {
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.input-form button {
+    padding: 1em;
+}
