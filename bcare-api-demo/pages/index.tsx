@@ -1,15 +1,15 @@
 // pages/index.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Layout from '../components/Layout';
 import Loader from '../components/Loader';
 import { setAuthToken } from '../utils/authToken';
 
 const Page: React.FC = () => {
-    const [accessToken, setAccessToken] = useState(null);
+    const [hasAccessToken, setHasAccessToken] = useState(false);
     const [attemptLogin, setAttemptLogin] = useState(true);
     const [loading, setLoading] = useState(true);
     
-    const handleLogin = async () => {
+    const handleLogin = useCallback(async () => {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/auth' || '', {
                 'method': 'POST',
@@ -24,43 +24,34 @@ const Page: React.FC = () => {
             });
             
             setLoading(false);
+            setAttemptLogin(false);
             
             if (response.ok) {
+                // Handle successful login
                 const data = await response.json();
                 setAuthToken(data.Token);
-                onLogin(data.Token);
+                setHasAccessToken(true);
             } else {
                 // Handle login error
                 console.error('Login error:', 'Unknown');
-                setAttemptLogin(false);
             }
         } catch (error) {
             console.error('Login error:', error);
             setAttemptLogin(false);
             setLoading(false);
         }
-    };
-    
-    const onLogin = (token: string) => {
-        // Handle successful login
-        setAccessToken(token);
-        setAttemptLogin(false);
-    };
+    }, []);
     
     useEffect(() => {
-        const tryDoLogin = async () => {
-            await handleLogin();
-        };
-        
         // Automatically attempt login on component mount
-        tryDoLogin();
+        handleLogin();
     }, [handleLogin]);
-    
+
     return (
             <div>
               {loading && <Loader />}
               <Layout><h1>Welcome to Behavidence Care API</h1>
-                  {accessToken? (<div>Access Token - OK</div>) : (
+                  {hasAccessToken? (<div>Access Token - OK</div>) : (
                                            attemptLogin ? <div>Attempting Login...</div> :
                                            <div>Check your credentials.</div>
                                            )}</Layout>

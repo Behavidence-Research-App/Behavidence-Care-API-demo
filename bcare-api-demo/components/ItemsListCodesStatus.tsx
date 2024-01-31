@@ -1,6 +1,5 @@
 // components/ItemsListCodesStatus.tsx
 import React from 'react';
-import CodeStatusItem from '../utils/types';
 import styles from '../styles/ItemList.module.css';
 
 interface ItemStatusListProps {
