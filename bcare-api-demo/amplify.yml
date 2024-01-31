@@ -20,6 +20,5 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-appRoot: 'bcare-api-demo'
 monorepo:
   mainApp: ./bcare-api-demo
