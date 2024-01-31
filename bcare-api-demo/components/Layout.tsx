@@ -4,7 +4,7 @@ import Menu from './Menu'
 
 import '../styles/styles.css';
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div className="main-page">
       <Menu />
