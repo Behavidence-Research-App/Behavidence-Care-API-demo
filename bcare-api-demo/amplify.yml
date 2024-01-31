@@ -1,6 +1,13 @@
 version: 1
 applications:
   - appRoot: bcare-api-demo
+    env:
+      variables:
+        NEXT_PUBLIC_API_KEY: ${NEXT_PUBLIC_API_KEY}
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_DEFAULT_USERNAME: ${NEXT_PUBLIC_DEFAULT_USERNAME}
+        NEXT_PUBLIC_DEFAULT_PASSWORD: ${NEXT_PUBLIC_DEFAULT_PASSWORD}
+        NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID: ${NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID}
     frontend:
       buildPath: /
       phases:
@@ -9,11 +16,6 @@ applications:
             - npm ci
         build:
           commands:
-            - echo "NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}" >> .env
-            - echo "NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}" >> .env
-            - echo "NEXT_PUBLIC_DEFAULT_USERNAME=${NEXT_PUBLIC_DEFAULT_USERNAME}" >> .env
-            - echo "NEXT_PUBLIC_DEFAULT_PASSWORD=${NEXT_PUBLIC_DEFAULT_PASSWORD}" >> .env
-            - echo "NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID=${NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID}" >> .env
             - npm run build
       artifacts:
         baseDirectory: .next
