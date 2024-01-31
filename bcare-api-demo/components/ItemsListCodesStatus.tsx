@@ -22,8 +22,8 @@ const ItemListCodesStatus: React.FC<ItemStatusListProps> = ({ items }) => {
                                   <li key={item.Code}>
                                       <div><strong>Code:</strong> {item.Code}</div>
                                       <div><strong>Department ID:</strong> {item.Label}</div>
-                                      <div><strong>Invited At:</strong> {item.Invited > 0 ? item.Invited : 'N/A'}</div>
-                                      <div><strong>Used At:</strong> {item.Used > 0 ? item.Used : 'N/A'}</div>
+                                      <div><strong>Invited At:</strong> {item.Invited != -1 ? item.Invited : 'N/A'}</div>
+                                      <div><strong>Used At:</strong> {item.Used != -1 ? item.Used : 'N/A'}</div>
                                   </li>
                                   ))}
            </ul>

@@ -48,9 +48,13 @@ const Page: React.FC = () => {
     };
     
     useEffect(() => {
+        const tryDoLogin = async () => {
+            await handleLogin();
+        };
+        
         // Automatically attempt login on component mount
-        handleLogin();
-    }, []);
+        tryDoLogin();
+    }, [handleLogin]);
     
     return (
             <div>

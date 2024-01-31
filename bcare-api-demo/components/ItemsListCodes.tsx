@@ -42,7 +42,7 @@ const ItemListCodes: React.FC<ItemListProps> = ({ items }) => {
         }
         
         return () => clearTimeout(timer);
-    }, [copyMessage]);
+    }, [copyMessage, messageActive]);
     
   return (
     <div>

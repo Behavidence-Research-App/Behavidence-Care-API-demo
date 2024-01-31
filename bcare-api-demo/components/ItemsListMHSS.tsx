@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../styles/ItemList.module.css';
 
 interface JsonListProps {
-  json: Record<string, any>;
+    mhss: Record<string, any>;
 }
 
 const ItemsListMHSS: React.FC<JsonListProps> = ({ mhss }) => {
