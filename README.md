@@ -135,7 +135,7 @@ Token
 ```POST /mhss-batch```    
 ### Request Headers    
 ```
-API Key   
+X-API-Key        
 Token   
 ```    
 ### Request Body    
@@ -165,7 +165,7 @@ Token
   “Amount”: number,    
   “Error”: “string”    
 }
-```   
+```         
 ### Response Elements    
 **Items**    
     Array of MHSS, matching the order of request array. Unused codes will have an empty object.    
@@ -186,7 +186,7 @@ Token
 ```POST /status```    
 ### Request Headers    
 ```
-API Key   
+X-API-Key        
 Token
 ```   
 ### Request Body    
