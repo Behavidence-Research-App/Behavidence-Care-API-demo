@@ -21,12 +21,14 @@ const ItemsListBatchMHSS: React.FC<MHSSListProps> = ({ items, codes }) => {
           <ul className={styles.itemsList}>
           {items.map((item, index) => (
                 <li key={index}>
-                     <h3>codes[index]</h3>
+                                       <h3>{codes[index]}</h3>
+                                       <ul>
                      {Object.entries(item).reverse().map(([key, value]) => (
                        <li key={key}>
                        <strong>{key}:</strong> {renderValue(value)}
                        </li>
                        ))}
+                                       </ul>
                 </li>
             ))}
           </ul>
