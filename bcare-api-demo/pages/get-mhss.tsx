@@ -21,12 +21,12 @@ const GetMHSS: React.FC = () => {
         setItems({});
                 
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/mhss' || '', {
+            const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/mhss', {
                 'method': 'POST',
                 'headers': {
                     'Content-Type': 'application/json',
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY,
-                    'Token': authToken
+                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY || '',
+                    'Token': authToken || ''
                 },
                 'body': JSON.stringify({
                     'Code': code,

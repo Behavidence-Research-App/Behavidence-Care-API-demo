@@ -11,11 +11,11 @@ const Page: React.FC = () => {
     
     const handleLogin = useCallback(async () => {
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/auth' || '', {
+            const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/auth', {
                 'method': 'POST',
                 'headers': {
                     'Content-Type': 'application/json',
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY
+                    'X-API-Key': process.env.NEXT_PUBLIC_API_KEY || ''
                 },
                 'body': JSON.stringify({
                     'Username': process.env.NEXT_PUBLIC_DEFAULT_USERNAME || '',

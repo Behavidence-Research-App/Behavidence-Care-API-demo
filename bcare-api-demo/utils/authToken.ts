@@ -1,5 +1,5 @@
 // utils/authToken.ts
-let authToken: string | null = null;
+let authToken: string | undefined = undefined;
 
 export const setAuthToken = (token: string) => {
   authToken = token;
