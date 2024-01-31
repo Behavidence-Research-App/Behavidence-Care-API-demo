@@ -13,7 +13,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm install
+            - cd bcare-api-demo && npm install
         build:
           commands:
             - npm run build
