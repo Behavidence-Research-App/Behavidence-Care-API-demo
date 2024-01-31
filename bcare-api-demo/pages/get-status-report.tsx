@@ -45,9 +45,9 @@ const GetStatusReport: React.FC = () => {
                 // Handle login error
                 setResponse('ERROR: ' + data.Error);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Request error:', error);
-            setResponse(error);
+            setResponse(String(error));
             setLoading(false);
         }
     };
