@@ -8,20 +8,24 @@ This call is required to get an access token, which serves as credentials in all
 ### Request Headers    
 ```API Key```   
 ### Request Body   
-```{   
+```
+{   
   “Username”: “string”,   
   “Password”: “string”    
-}```   
+}
+```   
 ### Request Parameters    
 **Username**
     (required) Client’s username, as received from Behavidence   
 **Password**   
     (required) Client’s password   
 ### Response Syntax
-```{   
+```
+{   
 “Token”: “string”,   
 “Expiration”: number   
-}```   
+}
+```   
 ### Response Elements   
 **Token**      
     Access token, used as credentials in subsequent API calls   
@@ -32,14 +36,18 @@ This call is required to get an access token, which serves as credentials in all
 ### Request Syntax   
 ```POST /code```    
 ### Request Headers      
-```API Key      
-Token```   
+```
+API Key      
+Token
+```   
 ### Request Body   
-```{    
+```
+{    
 “SubscriptionId”: “string”,   
 “DepartmentId”: “string”,   
 “Amount”: number   
-}```  
+}
+```  
 ### Request Parameters    
 **SubscriptionId**  
     (required) Client’s account ID, as received from Behavidence   
@@ -48,11 +56,13 @@ Token```
 **Amount**
     (optional) Amount of Association Codes / Invitation links to generate. Positive. Default value: 1
 ### Response Syntax
-```{   
+```
+{   
 “Items”: [ { “Code”: “string”, “Link”: “string” } ],   
 “Amount”: number,   
 “Error”: “string”   
-}```   
+}
+```   
 ### Response Elements    
 **Items**   
     Array of Association Codes / Invitation links, if generation was successful. Each item contains a unique code identifier for the patient, and a link to download the application with automatic connection to the code.    
@@ -74,20 +84,25 @@ Token```
 ### Request Syntax   
 ```POST /mhss```
 ### Request Headers    
-```API Key   
-Token```   
+```
+API Key   
+Token
+```   
 ### Request Body    
-```{   
+```
+{   
 “Code”: “string”,    
 “From”: “string”    
-}```    
+}
+```    
 ### Request Parameters    
 **Code**
     (required) Unique patient code, for which to retrieve MHSS   
 **From**
     (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd     
 ### Response Syntax    
-```{   
+```
+{   
   “Items”: {   
     “YYYY-MM-dd”: {    
         “anxiety”: number,   
@@ -98,7 +113,8 @@ Token```
   },    
   “Amount”: number,   
   “Error”: “string”   
-}```   
+}
+```   
 ### Response Elements
 **Items**
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
@@ -118,20 +134,25 @@ Token```
 ### Request Syntax    
 ```POST /mhss-batch```    
 ### Request Headers    
-```API Key   
-Token```    
+```
+API Key   
+Token
+```    
 ### Request Body    
-```{    
+```
+{    
   “Codes”: [ “string” ],    
   “From”: “string”     
-}```    
+}
+```    
 ### Request Parameters    
 **Codes**    
     (required) Array of unique patient codes, for which to retrieve MHSS    
 **From**    
     (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd     
 ### Response Syntax     
-```{   
+```
+{   
   “Items”: [    
     { “YYYY-MM-dd”: {    
         “anxiety”: number,   
@@ -143,7 +164,8 @@ Token```
   ],    
   “Amount”: number,    
   “Error”: “string”    
-}```   
+}
+```   
 ### Response Elements    
 **Items**    
     Array of MHSS, matching the order of request array. Unused codes will have an empty object.    
@@ -163,17 +185,22 @@ Token```
 ### Request Syntax    
 ```POST /status```    
 ### Request Headers    
-```API Key   
-Token```   
+```
+API Key   
+Token
+```   
 ### Request Body    
-```{   
+```
+{   
   “Detailed”: boolean   
-}```   
+}
+```   
 ### Request Parameters    
 **Detailed**    
     (optional) Request per-code report. Default value: false    
 ### Response Syntax    
-```{    
+```
+{    
   “Items”: {   
     “Free”: number,   
     “Invited”: number,     
@@ -188,7 +215,8 @@ Token```
     ]
   },
   “Error”: “string”    
-}```    
+}
+```    
 ### Response Elements    
 **Items**     
     Amount of codes that are used by patients, amount of codes that were allocated to patients but not yet used, amount of remaining codes. If a detailed status report was requested, array of information per code, including its Department unique ID, timestamp of allocation and timestamp of association by patient (milliseconds UTC). If a code was allocated for a patient but is not yet used, the timestamp of association will be zero.    
