@@ -15,15 +15,15 @@ This call is required to get an access token, which serves as credentials in all
 }
 ```   
 ### Request Parameters    
-**Username**
+**Username**   
     (required) Client’s username, as received from Behavidence   
 **Password**   
     (required) Client’s password   
-### Response Syntax
+### Response Syntax    
 ```
 {   
-“Token”: “string”,   
-“Expiration”: number   
+  “Token”: “string”,   
+  “Expiration”: number   
 }
 ```   
 ### Response Elements   
@@ -43,9 +43,9 @@ Token
 ### Request Body   
 ```
 {    
-“SubscriptionId”: “string”,   
-“DepartmentId”: “string”,   
-“Amount”: number   
+  “SubscriptionId”: “string”,   
+  “DepartmentId”: “string”,   
+  “Amount”: number   
 }
 ```  
 ### Request Parameters    
@@ -53,14 +53,14 @@ Token
     (required) Client’s account ID, as received from Behavidence   
 **DepartmentId**    
     (required) Alphanumeric unique identifier of a department, clinic or therapist. Minimum length of 4. Maximum length of 32.    
-**Amount**
-    (optional) Amount of Association Codes / Invitation links to generate. Positive. Default value: 1
-### Response Syntax
+**Amount**    
+    (optional) Amount of Association Codes / Invitation links to generate. Positive. Default value: 1    
+### Response Syntax    
 ```
 {   
-“Items”: [ { “Code”: “string”, “Link”: “string” } ],   
-“Amount”: number,   
-“Error”: “string”   
+  “Items”: [ { “Code”: “string”, “Link”: “string” } ],   
+  “Amount”: number,   
+  “Error”: “string”   
 }
 ```   
 ### Response Elements    
@@ -70,7 +70,7 @@ Token
     Amount of generated items. Negative if error.    
 **Error**   
     Error message, if error occurs; otherwise, empty string.    
-**Errors**
+**Errors**    
 (-101)    
     Invalid Subscription ID    
 (-103)    
@@ -82,7 +82,7 @@ Token
      
 ## Get MHSS for Patient Code   
 ### Request Syntax   
-```POST /mhss```
+```POST /mhss```    
 ### Request Headers    
 ```
 API Key   
@@ -91,14 +91,14 @@ Token
 ### Request Body    
 ```
 {   
-“Code”: “string”,    
-“From”: “string”    
+  “Code”: “string”,    
+  “From”: “string”    
 }
 ```    
 ### Request Parameters    
-**Code**
+**Code**   
     (required) Unique patient code, for which to retrieve MHSS   
-**From**
+**From**    
     (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd     
 ### Response Syntax    
 ```
@@ -115,8 +115,8 @@ Token
   “Error”: “string”   
 }
 ```   
-### Response Elements
-**Items**
+### Response Elements    
+**Items**    
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
 **Amount**    
     Amount of days with MHSS. Negative if error. Zero if the code is unused.    
@@ -136,7 +136,7 @@ Token
 ### Request Headers    
 ```
 API Key   
-Token
+Token   
 ```    
 ### Request Body    
 ```
@@ -149,7 +149,7 @@ Token
 **Codes**    
     (required) Array of unique patient codes, for which to retrieve MHSS    
 **From**    
-    (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd     
+    (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd      
 ### Response Syntax     
 ```
 {   
