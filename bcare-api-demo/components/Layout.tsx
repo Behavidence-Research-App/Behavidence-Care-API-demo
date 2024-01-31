@@ -1,5 +1,5 @@
 // components/Layout.tsx
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Menu from './Menu'
 
 import '../styles/styles.css';
