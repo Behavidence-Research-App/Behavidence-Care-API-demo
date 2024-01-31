@@ -80,7 +80,7 @@ const GetCodeLink: React.FC = () => {
                         type="text"
                         placeholder="Amount"
                         value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
+                        onChange={(e) => setAmount(parseInt(e.target.value, 10))}
                       />
                       <button onClick={handleGetCodeLink}>Get Code and Link</button>
                     </div>
