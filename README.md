@@ -115,7 +115,7 @@ Token
   “Error”: “string”   
 }
 ```   
-### Response Elements    
+### Response Elements      
 **Items**    
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
 **Amount**    
