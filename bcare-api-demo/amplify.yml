@@ -1,6 +1,8 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: bcare-api-demo
+    frontend:
+      buildPath: /
       phases:
         preBuild:
           commands:
@@ -20,5 +22,3 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-monorepo:
-  mainApp: ./bcare-api-demo
