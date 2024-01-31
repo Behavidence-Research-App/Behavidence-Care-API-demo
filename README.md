@@ -6,14 +6,14 @@ This call is required to get an access token, which serves as credentials in all
 ### Request Syntax   
 ```POST /auth```    
 ### Request Headers    
-```API Key```   
+``` X-API-Key```         
 ### Request Body   
 ```
 {   
   “Username”: “string”,   
   “Password”: “string”    
 }
-```   
+```    
 ### Request Parameters    
 **Username**   
     (required) Client’s username, as received from Behavidence   
@@ -37,7 +37,7 @@ This call is required to get an access token, which serves as credentials in all
 ```POST /code```    
 ### Request Headers      
 ```
-API Key      
+X-API-Key              
 Token
 ```   
 ### Request Body   
@@ -85,7 +85,7 @@ Token
 ```POST /mhss```    
 ### Request Headers    
 ```
-API Key   
+X-API-Key          
 Token
 ```   
 ### Request Body    
@@ -114,9 +114,9 @@ Token
   “Amount”: number,   
   “Error”: “string”   
 }
-```   
-### Response Elements      
-**Items**    
+```     
+### Response Elements      
+**Items**     
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
 **Amount**    
     Amount of days with MHSS. Negative if error. Zero if the code is unused.    
@@ -166,7 +166,7 @@ Token
   “Error”: “string”    
 }
 ```         
-### Response Elements    
+### Response Elements     
 **Items**    
     Array of MHSS, matching the order of request array. Unused codes will have an empty object.    
 **Amount**   
