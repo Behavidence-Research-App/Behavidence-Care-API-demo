@@ -1,0 +1,24 @@
+version: 1
+applications:
+  - env:
+      variables:
+        NEXT_PUBLIC_API_KEY: ${NEXT_PUBLIC_API_KEY}
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_DEFAULT_USERNAME: ${NEXT_PUBLIC_DEFAULT_USERNAME}
+        NEXT_PUBLIC_DEFAULT_PASSWORD: ${NEXT_PUBLIC_DEFAULT_PASSWORD}
+        NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID: ${NEXT_PUBLIC_DEFAULT_SUBSCRIPTION_ID}
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
