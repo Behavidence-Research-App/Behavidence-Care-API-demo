@@ -5,9 +5,10 @@ import styles from '../styles/ItemList.module.css';
 interface ItemStatusListProps {
   items: {
       Code: string;
-      Label: string;
+      DepartmentId: string;
       Invited: number;
       Used: number;
+      Disconnected: number;
   }[];
 }
 
