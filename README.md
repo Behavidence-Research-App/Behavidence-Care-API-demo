@@ -111,7 +111,8 @@ Token
         “stress”: number   
     },    
   },    
-  “Amount”: number,   
+  “Amount”: number,
+  “Status”: “string”,        
   “Error”: “string”   
 }
 ```     
@@ -119,7 +120,9 @@ Token
 **Items**     
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
 **Amount**    
-    Amount of days with MHSS. Negative if error. Zero if the code is unused.    
+    Amount of days with MHSS. Negative if error. Zero if the code is unused. 
+**Status**     
+	Status of code - Invited, Used, Disconnected.     
 **Error**    
     Error message, if error occurs; otherwise, empty string.   
 **Errors**    
@@ -219,7 +222,7 @@ Token
 ```    
 ### Response Elements    
 **Items**     
-    Amount of codes that are used by patients, amount of codes that were allocated to patients but not yet used, amount of remaining codes. If a detailed status report was requested, array of information per code, including its Department unique ID, timestamp of allocation and timestamp of association by patient (milliseconds UTC). If a code was allocated for a patient but is not yet used, the timestamp of association will be zero.    
+    Amount of codes that are used by patients, amount of codes that were allocated to patients but not yet used, amount of remaining codes. If a detailed status report was requested, array of information per code, including its Department unique ID, timestamp of allocation and timestamp of association by patient (milliseconds UTC). If a code was allocated for a patient but is not yet used, the timestamp of association will be zero. If a patient disconnected from a code, a timestamp of disconnection time will be included.    
 **Error**    
     Error message, if error occurs; otherwise, empty string.    
 **Errors**   
