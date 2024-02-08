@@ -1,5 +1,5 @@
 .DS_Store
-BCareAPI-Demo.xcworkspace
+BcarePublicAPI-Demo.xcworkspace
 .env.local
 node_modules
 .next
