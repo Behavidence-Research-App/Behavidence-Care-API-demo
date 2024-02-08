@@ -38,7 +38,7 @@ const GetMHSS: React.FC = () => {
             
             const data = await response.json();
             if (response.ok) {
-                setResponse('OK: Got MHSS for ' + data.Amount + ' dates');
+                setResponse('OK: Got MHSS for ' + data.Amount + ' dates. Code status = ' + data.Status);
                 setItems(data.Items);
             }
             else {

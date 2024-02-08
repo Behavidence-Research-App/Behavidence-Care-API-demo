@@ -20,9 +20,10 @@ const ItemListCodesStatus: React.FC<ItemStatusListProps> = ({ items }) => {
      {items.map((item, index) => (
                                   <li key={item.Code}>
                                       <div><strong>Code:</strong> {item.Code}</div>
-                                      <div><strong>Department ID:</strong> {item.Label}</div>
+                                      <div><strong>Department ID:</strong> {item.DepartmentId}</div>
                                       <div><strong>Invited At:</strong> {item.Invited != -1 ? item.Invited : 'N/A'}</div>
                                       <div><strong>Used At:</strong> {item.Used != -1 ? item.Used : 'N/A'}</div>
+                                      <div><strong>Disconnected At:</strong> {item.Disconnected != -1 ? item.Disconnected : 'N/A'}</div>
                                   </li>
                                   ))}
            </ul>
