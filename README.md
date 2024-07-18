@@ -112,7 +112,8 @@ Token
     },    
   },    
   “Amount”: number,
-  “Status”: “string”,        
+  “Status”: “string”,
+  “UserID”: “string”,        
   “Error”: “string”   
 }
 ```     
