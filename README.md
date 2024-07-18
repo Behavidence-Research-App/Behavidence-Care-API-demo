@@ -1,5 +1,14 @@
 # Behavidence Care as SDK - REST API     
 Simple example of integration of Behavidence Care API to add value to clinicians and patients using Mental Health Similarity Scores         
+
+## Direct link to MHSS of patient in BehavidenceCare
+``` https://care.behavidence.com/similarity-scores/detail/?userId=[UserID]&userCode=[UserAssociationCode] ```
+
+### Query Parameters
+**userId**      
+    (required) UserID, as received from Behavidence when requesting MHSS for Code   
+**userCode**      
+    (required) Association Code of a patient
       
 ## Connect to Behavidence Care API   
 This call is required to get an access token, which serves as credentials in all subsequent API calls.   
