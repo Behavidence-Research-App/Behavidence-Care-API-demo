@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import Loader from '../components/Loader';
 import ItemsListMHSS from '../components/ItemsListMHSS';
-import { getAuthToken } from '../utils/authToken';
+import { getAuthToken, getRefToken } from '../utils/authToken';
 
 const GetMHSS: React.FC = () => {
     const authToken = getAuthToken();
+    const refToken = getRefToken();
     
     const [response, setResponse] = useState(authToken ? '... waiting for user to make request' : 'Please go to main page to refresh access token.');
     const [items, setItems] = useState({});
@@ -14,6 +15,8 @@ const GetMHSS: React.FC = () => {
     
     const [code, setCode] = useState('');
     const [fromDate, setFromDate] = useState('');
+
+    const [directLink, setDirectLink] = useState("");
     
     const handleGetMHSS = async () => {
         setLoading(true);
@@ -40,6 +43,9 @@ const GetMHSS: React.FC = () => {
             if (response.ok) {
                 setResponse('OK: Got MHSS for ' + data.Amount + ' dates. Code status = ' + data.Status);
                 setItems(data.Items);
+
+                const userID = data.UserID;
+                setDirectLink(`https://care.behavidence.com/similarity-scores/redirect/?userId=${userID}&userCode=${code}&refreshtoken=${refToken}`);
             }
             else {
                 // Handle login error
@@ -79,6 +85,7 @@ const GetMHSS: React.FC = () => {
                     <div>
                         <h2>API Response</h2>
                         <p>{response}</p>
+                        <a href={directLink} target='_blank'>{directLink}</a>
                         <ItemsListMHSS mhss={items} />
                     </div>
                 </Layout>

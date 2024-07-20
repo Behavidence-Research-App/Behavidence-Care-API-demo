@@ -2,13 +2,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Layout from '../components/Layout';
 import Loader from '../components/Loader';
-import { setAuthToken } from '../utils/authToken';
+import { setAuthToken, setRefToken } from '../utils/authToken';
 
 const Page: React.FC = () => {
     const [hasAccessToken, setHasAccessToken] = useState(false);
     const [attemptLogin, setAttemptLogin] = useState(true);
     const [loading, setLoading] = useState(true);
-    
+
     const handleLogin = useCallback(async () => {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/auth', {
@@ -29,7 +29,9 @@ const Page: React.FC = () => {
             if (response.ok) {
                 // Handle successful login
                 const data = await response.json();
+
                 setAuthToken(data.Token);
+                setRefToken(data.RefToken);
                 setHasAccessToken(true);
             } else {
                 // Handle login error
