@@ -2,13 +2,15 @@
 Simple example of integration of Behavidence Care API to add value to clinicians and patients using Mental Health Similarity Scores         
 
 ## Direct link to MHSS of patient in BehavidenceCare
-``` https://care.behavidence.com/similarity-scores/detail/?userId=[UserID]&userCode=[UserAssociationCode] ```
+``` https://care.behavidence.com/similarity-scores/detail/?userId=[UserID]&userCode=[UserAssociationCode]&refreshtoken=[token] ```
 
 ### Query Parameters
 **userId**      
     (required) UserID, as received from Behavidence when requesting MHSS for Code   
 **userCode**      
-    (required) Association Code of a patient
+    (required) Association Code of a patient    
+**refreshtoken**      
+    (required) Refresh Token, as received when connecting     
       
 ## Connect to Behavidence Care API   
 This call is required to get an access token, which serves as credentials in all subsequent API calls.   
@@ -32,14 +34,20 @@ This call is required to get an access token, which serves as credentials in all
 ```
 {   
   “Token”: “string”,   
-  “Expiration”: number   
+  “Expiration”: number,     
+  “RefToken”: “string”,   
+  “RefExpiration”: number,        
 }
 ```   
 ### Response Elements   
 **Token**      
     Access token, used as credentials in subsequent API calls   
 **Expiration**   
-    UTC Milliseconds timestamp; the token expires at the given time   
+    Validity duration in seconds   
+**ReToken**      
+    Refresh token, used as credentials in direct link to Behavidence Care     
+**RefExpiration**   
+    Validity duration in seconds    
     
 ## Get Association Code / Invitation Link for Patient   
 ### Request Syntax   
