@@ -109,7 +109,8 @@ Token
 ```
 {   
   “Code”: “string”,    
-  “From”: “string”    
+  “From”: “string”,    
+  “Average”: “string”,    
 }
 ```    
 ### Request Parameters    

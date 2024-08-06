@@ -15,6 +15,7 @@ const GetMHSS: React.FC = () => {
     
     const [code, setCode] = useState('');
     const [fromDate, setFromDate] = useState('');
+    const [average, setAverage] = useState(false)
 
     const [directLink, setDirectLink] = useState("");
     
@@ -33,7 +34,8 @@ const GetMHSS: React.FC = () => {
                 },
                 'body': JSON.stringify({
                     'Code': code,
-                    'From': fromDate
+                    'From': fromDate,
+                    'Average': average
                 }),
             });
             
@@ -79,6 +81,13 @@ const GetMHSS: React.FC = () => {
                         placeholder="From Date"
                         value={fromDate}
                         onChange={(e) => setFromDate(e.target.value)}
+                      />
+                      <label htmlFor='getAvgMHSS'>Average MHSS for one week</label>
+                      <input
+                        name="getAvgMHSS"
+                        type="checkbox"
+                        checked={average}
+                        onChange={(e) => setAverage(e.target.checked)}
                       />
                       <button onClick={handleGetMHSS}>Get MHSS for Code</button>
                     </div>
