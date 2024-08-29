@@ -141,7 +141,7 @@ Token
 **Items**     
     Object of MHSS of the patient per day, if the code was used; otherwise, empty. Mental Health Similarity Scores are between 0 and 1.     
 **Amount**    
-    Amount of days with MHSS. Negative if error. Zero if the code is unused. 
+    Amount of days with MHSS. Negative if error. Zero if the code is unused. For average, number of days actually averaged.
 **Status**     
 	Status of code - Invited, Used, Disconnected.     
 **Error**    
