@@ -7,6 +7,7 @@ interface ItemListProps {
   items: {
       Code: string;
       Link: string;
+      QRCode: string; 
   }[];
 }
 
@@ -53,6 +54,10 @@ const ItemListCodes: React.FC<ItemListProps> = ({ items }) => {
               <div><strong>Code:</strong> {item.Code}</div>
               <div><strong>Link:</strong> {item.Link}</div>
               <button onClick={() => handleCopyToClipboard(item.Link)}>Copy link to Clipboard</button>
+              <div>
+                <strong>QR Code:</strong>
+                <img src={item.QRCode} alt={`QR Code for ${item.Code}`} className={styles.qrCodeImage} />
+              </div>
             </li>
           ))}
         </ul>

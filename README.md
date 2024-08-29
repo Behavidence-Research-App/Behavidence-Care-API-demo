@@ -21,8 +21,8 @@ This call is required to get an access token, which serves as credentials in all
 ### Request Body   
 ```
 {   
-  “Username”: “string”,   
-  “Password”: “string”    
+  "Username": "string",   
+  "Password": "string"    
 }
 ```    
 ### Request Parameters    
@@ -33,10 +33,10 @@ This call is required to get an access token, which serves as credentials in all
 ### Response Syntax    
 ```
 {   
-  “Token”: “string”,   
-  “Expiration”: number,     
-  “RefToken”: “string”,   
-  “RefExpiration”: number,        
+  "Token": "string",   
+  "Expiration": number,     
+  "RefToken": "string",   
+  "RefExpiration": number,        
 }
 ```   
 ### Response Elements   
@@ -60,9 +60,9 @@ Token
 ### Request Body   
 ```
 {    
-  “SubscriptionId”: “string”,   
-  “DepartmentId”: “string”,   
-  “Amount”: number   
+  "SubscriptionId": "string",   
+  "DepartmentId": "string",   
+  "Amount": number   
 }
 ```  
 ### Request Parameters    
@@ -75,14 +75,14 @@ Token
 ### Response Syntax    
 ```
 {   
-  “Items”: [ { “Code”: “string”, “Link”: “string” } ],   
-  “Amount”: number,   
-  “Error”: “string”   
+  "Items": [ { "Code": "string", "Link": "string", "QRCode": "string" } ],   
+  "Amount": number,   
+  "Error": "string"   
 }
 ```   
 ### Response Elements    
 **Items**   
-    Array of Association Codes / Invitation links, if generation was successful. Each item contains a unique code identifier for the patient, and a link to download the application with automatic connection to the code.    
+    Array of Association Codes / Invitation links, if generation was successful. Each item contains a unique code identifier for the patient, a link to download the application with automatic connection to the code, and a QR-Code (Base64 image data) which leads to the same link.   
 **Amount**   
     Amount of generated items. Negative if error.    
 **Error**   
@@ -108,9 +108,9 @@ Token
 ### Request Body    
 ```
 {   
-  “Code”: “string”,    
-  “From”: “string”,    
-  “Average”: number,    
+  "Code": "string",    
+  "From": "string",    
+  "Average": number,    
 }
 ```    
 ### Request Parameters    
@@ -123,18 +123,18 @@ Token
 ### Response Syntax    
 ```
 {   
-  “Items”: {   
-    “YYYY-MM-dd”: {    
-        “anxiety”: number,   
-        “adhd”: number,    
-        “depression”: number,   
-        “stress”: number   
+  "Items": {   
+    "YYYY-MM-dd": {    
+        "anxiety": number,   
+        "adhd": number,    
+        "depression": number,   
+        "stress": number   
     },    
   },    
-  “Amount”: number,
-  “Status”: “string”,
-  “UserID”: “string”,        
-  “Error”: “string”   
+  "Amount": number,
+  "Status": "string",
+  "UserID": "string",        
+  "Error": "string"   
 }
 ```     
 ### Response Elements      
@@ -165,8 +165,8 @@ Token
 ### Request Body    
 ```
 {    
-  “Codes”: [ “string” ],    
-  “From”: “string”     
+  "Codes": [ "string" ],    
+  "From": "string"     
 }
 ```    
 ### Request Parameters    
@@ -177,17 +177,17 @@ Token
 ### Response Syntax     
 ```
 {   
-  “Items”: [    
-    { “YYYY-MM-dd”: {    
-        “anxiety”: number,   
-        “adhd”: number,   
-        “depression”: number,   
-        “stress”: number      
+  "Items": [    
+    { "YYYY-MM-dd": {    
+        "anxiety": number,   
+        "adhd": number,   
+        "depression": number,   
+        "stress": number      
       },   
     }    
   ],    
-  “Amount”: number,    
-  “Error”: “string”    
+  "Amount": number,    
+  "Error": "string"    
 }
 ```         
 ### Response Elements     
@@ -216,7 +216,7 @@ Token
 ### Request Body    
 ```
 {   
-  “Detailed”: boolean   
+  "Detailed": boolean   
 }
 ```   
 ### Request Parameters    
@@ -225,20 +225,20 @@ Token
 ### Response Syntax    
 ```
 {    
-  “Items”: {   
-    “Free”: number,   
-    “Invited”: number,     
-    “Used”: number,    
-    “Codes”: [    
+  "Items": {   
+    "Free": number,   
+    "Invited": number,     
+    "Used": number,    
+    "Codes": [    
       {
-        “Code”: “string”,   
-        “DepartmentId”: “string”,   
-        “Invited”: number,   
-        “Used”: number    
+        "Code": "string",   
+        "DepartmentId": "string",   
+        "Invited": number,   
+        "Used": number    
       },
     ]
   },
-  “Error”: “string”    
+  "Error": "string"    
 }
 ```    
 ### Response Elements    
