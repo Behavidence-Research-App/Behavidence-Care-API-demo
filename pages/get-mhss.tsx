@@ -15,7 +15,7 @@ const GetMHSS: React.FC = () => {
     
     const [code, setCode] = useState('');
     const [fromDate, setFromDate] = useState('');
-    const [average, setAverage] = useState(false)
+    const [average, setAverage] = useState(0)
 
     const [directLink, setDirectLink] = useState("");
     
@@ -82,12 +82,13 @@ const GetMHSS: React.FC = () => {
                         value={fromDate}
                         onChange={(e) => setFromDate(e.target.value)}
                       />
-                      <label htmlFor='getAvgMHSS'>Average MHSS for one week</label>
+                      <label htmlFor='getAvgMHSS'>Average MHSS for # of days</label>
                       <input
                         name="getAvgMHSS"
-                        type="checkbox"
-                        checked={average}
-                        onChange={(e) => setAverage(e.target.checked)}
+                        type="text"
+                        placeholder="Average of days"
+                        value={average}
+                        onChange={(e) => setAverage(Number(e.target.value))}
                       />
                       <button onClick={handleGetMHSS}>Get MHSS for Code</button>
                     </div>
