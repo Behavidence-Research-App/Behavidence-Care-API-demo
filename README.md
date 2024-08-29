@@ -110,14 +110,16 @@ Token
 {   
   “Code”: “string”,    
   “From”: “string”,    
-  “Average”: “string”,    
+  “Average”: number,    
 }
 ```    
 ### Request Parameters    
 **Code**   
     (required) Unique patient code, for which to retrieve MHSS   
 **From**    
-    (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd     
+    (optional) Fetch MHSS from this date until today. If omitted, fetch all MHSS. Format: YYYY-MM-dd    
+**Average**    
+    (optional) Fetch average MHSS for the last number of scores.
 ### Response Syntax    
 ```
 {   
