@@ -133,7 +133,11 @@ Token
   },    
   "Amount": number,
   "Status": "string",
-  "UserID": "string",        
+  "UserID": "string",
+  "QuestStats": {
+    "sent": number,
+    "answered": number
+  },       
   "Error": "string"   
 }
 ```     
