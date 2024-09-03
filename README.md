@@ -220,12 +220,15 @@ Token
 ### Request Body    
 ```
 {   
-  "Detailed": boolean   
+  "Detailed": boolean,
+  "Code": string   
 }
 ```   
 ### Request Parameters    
 **Detailed**    
     (optional) Request per-code report. Default value: false    
+**Code**   
+    (optional) Unique patient code, for which to get status report   
 ### Response Syntax    
 ```
 {    
@@ -238,7 +241,8 @@ Token
         "Code": "string",   
         "DepartmentId": "string",   
         "Invited": number,   
-        "Used": number    
+        "Used": number,
+        "Disconnected": number    
       },
     ]
   },

@@ -8,9 +8,10 @@ import { getAuthToken } from '../utils/authToken';
 
 const GetStatusReport: React.FC = () => {
     const authToken = getAuthToken();
-    
+
     const [detailed, setDetailed] = useState(false);
-    
+    const [code, setCode] = useState<string | undefined>();
+
     const [response, setResponse] = useState(authToken ? '... waiting for user to make request' : 'Please go to main page to refresh access token.');
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ const GetStatusReport: React.FC = () => {
     const handleCheckboxChange = () => {
         setDetailed(!detailed);
     };
-    
+
     const handleGetStatusReport = async () => {
         setLoading(true);
         try {
@@ -30,12 +31,13 @@ const GetStatusReport: React.FC = () => {
                     'Token': authToken || ''
                 },
                 'body': JSON.stringify({
-                    'Detailed': detailed
+                    'Detailed': detailed,
+                    'Code': code
                 }),
             });
-            
+
             setLoading(false);
-            
+
             const data = await response.json();
             if (response.ok) {
                 setResponse('OK. Free: ' + data.Free + ',  Invited: ' + data.Invited + ',  Used: ' + data.Used);
@@ -52,24 +54,32 @@ const GetStatusReport: React.FC = () => {
         }
     };
 
-  return (
-            <div>
-              {loading && <Loader />}
-                <Layout>
-                    <h1>Get Status Report for Codes</h1>
-                    <div className="input-form">
-                      <label htmlFor="detailed">Get detailed report - per code status</label>
-                      <input name="detailed" type="checkbox" checked={detailed} onChange={handleCheckboxChange} />
-                      <button onClick={handleGetStatusReport}>Get Status Report</button>
-                    </div>
-                    <div>
-                        <h2>API Response</h2>
-                        <p>{response}</p>
-                        {items.length > 0 && <ItemListCodesStatus items={items} />}
-                    </div>
-                </Layout>
-            </div>
-          );
+    return (
+        <div>
+            {loading && <Loader />}
+            <Layout>
+                <h1>Get Status Report for Codes</h1>
+                <div className="input-form">
+                    <label htmlFor="detailed">Get detailed report - per code status</label>
+                    <input name="detailed" type="checkbox" checked={detailed} onChange={handleCheckboxChange} />
+                    <label htmlFor="code">Code</label>
+                    <input
+                        name="code"
+                        type="text"
+                        placeholder="Code"
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}
+                    />
+                    <button onClick={handleGetStatusReport}>Get Status Report</button>
+                </div>
+                <div>
+                    <h2>API Response</h2>
+                    <p>{response}</p>
+                    {items.length > 0 && <ItemListCodesStatus items={items} />}
+                </div>
+            </Layout>
+        </div>
+    );
 };
 
 export default GetStatusReport;
