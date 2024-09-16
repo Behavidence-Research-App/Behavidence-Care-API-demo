@@ -137,7 +137,13 @@ Token
   "QuestStats": {
     "sent": number,
     "answered": number
-  },       
+  },
+  "Thresholds": {
+    "anxiety": number,   
+    "adhd": number,    
+    "depression": number,   
+    "stress": number 
+  }       
   "Error": "string"   
 }
 ```     
@@ -147,7 +153,13 @@ Token
 **Amount**    
     Amount of days with MHSS. Negative if error. Zero if the code is unused. For average, number of days actually averaged.
 **Status**     
-	Status of code - Invited, Used, Disconnected.     
+	Status of code - Invited, Used, Disconnected.  
+**UserID**     
+	Anonimized UserID which is connected to this code; used to create direct link to Behavidence Care MHSS Dashboard.     
+**QuestStats**     
+	Status of PROs, number of sent and answered      
+**Thresholds**     
+	Object of custom thresholds for MHSS, per phenotype. May be empty. Values are between 0 and 100.    
 **Error**    
     Error message, if error occurs; otherwise, empty string.   
 **Errors**    
