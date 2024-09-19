@@ -269,3 +269,48 @@ Token
 **Errors**   
 (-107)   
     Invalid Access Token   
+       
+## Get PROs Status Report     
+### Request Syntax    
+```POST /pro-report```    
+### Request Headers    
+```
+X-API-Key        
+Token
+```   
+### Request Body    
+```
+{   
+  "From": string,
+  "To": string   
+}
+```   
+### Request Parameters    
+**From**    
+    (optional) Fetch PROs report from this date. If omitted, fetch from the beginning of time. Format: YYYY-MM-dd      
+**To**   
+    (optional) Fetch PROs until this date. If omitted, fetch until today. Format: YYYY-MM-dd      
+### Response Syntax    
+```
+{    
+  "Questionnaires": [{    
+    "user_code": string,   
+    "name": string,     
+    "sent": number,    
+    "answered": number,   
+    "score": number 
+  }],
+  "Error": "string"    
+}
+```    
+### Response Elements    
+**Questionnaires**     
+    user_code: unique patient code; name: name of PRO;     
+    sent: timestamp when sent; answered: timestamp when answered;      
+    score: calculated score for PRO     
+**Error**    
+    Error message, if error occurs; otherwise, empty string.    
+**Errors**   
+(-107)   
+    Invalid Access Token   
+      
